@@ -136,7 +136,9 @@ Sometimes git will claim that files have changed when dealing with a repository 
 
 *How the problem could look in VSCode. Note that no actual lines have changed, and the problem is not with line endings either.*
 
-To fix, change git config:
+The problem and solution is described in medium article [How Git Treats Changes in File Permissions.](https://medium.com/@tahteche/how-git-treats-changes-in-file-permissions-f71874ca239d), also Stack Overflow [How do I remove files saying "old mode 100755 new mode 100644" from unstaged changes in Git?](https://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha).
+
+In short: to fix, change git config (use global option if desired):
 
 `git config --local core.filemode false`
 
@@ -145,5 +147,3 @@ As a user notes in a comment to top answer:
 > This means that git thinks that it can correctly set the executable bit on checked out files, but when it attempts to do so it doesn't work (or at least not in a way that it can read). When it then reads back the status of those files it looks like the executable bit has been deliberately unset. Setting core.filemode to false tells git to ignore any executable bit changes on the filesystem so it won't view this as a change. If you do need to stage an executable bit change it does mean that you have to manually do `git update-index --chmod=(+|-)x <path>` (- CB Baily)
 
 PS: If the problem stems not from Unix vs. Windows disparity, you're probably better off [changing permissions](https://stackoverflow.com/a/44866012/2948823) with `chmod`.
-
-Stack Overflow: [How do I remove files saying "old mode 100755 new mode 100644" from unstaged changes in Git?](https://stackoverflow.com/questions/1257592/how-do-i-remove-files-saying-old-mode-100755-new-mode-100644-from-unstaged-cha)
