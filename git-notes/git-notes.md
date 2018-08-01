@@ -130,11 +130,11 @@ Optional additional reading - explains the same as [Mind the End of Your Line](h
 
 Sometimes Git will claim that files have changed when dealing with a repository cross platform, typically when starting it on Linux/macOS and copying it / using it on Windows. It can then manifest e.g. when checking out an older commit. Could look like this in Tower and VSCode:
 
-![image-20180731083311323](assets/Git-file-permission-tower.png)
+![image-20180731083311323](assets/git-file-permission-tower.png)
 
 *How the problem looks in Tower.*
 
-![Capture](assets/Git-file-permission-vscode.png)
+![Capture](assets/git-file-permission-vscode.png)
 
 *How the problem could look in VSCode. Note that no actual lines have changed, and the problem is not with line endings either.*
 
